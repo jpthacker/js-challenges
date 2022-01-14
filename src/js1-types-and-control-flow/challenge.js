@@ -103,7 +103,7 @@ const nameTagOption = "Timothy";
 
 export const getIsValidOnNameTag = () => {
   let suitableNameTag;
-  let nameTagLength = nameTagOption.length;
+  const nameTagLength = nameTagOption.length;
   if (nameTagLength <= 8) {
     suitableNameTag = true;
   } else {
@@ -123,7 +123,7 @@ export const getIsValidOnNameTag = () => {
 const stringToConvert = "14.45";
 
 export const convertStringToNumber = () => {
-  // Write your code here
+  return +stringToConvert;
 };
 
 /**
@@ -137,7 +137,9 @@ export const convertStringToNumber = () => {
 const stringWithUppercaseLetters = "I Am A String With Uppercase Letters";
 
 export const getHasUppercaseLetters = () => {
-  // Write your code here
+  let regExp = /[A-Z]/;
+  let isMatch = regExp.test(stringWithUppercaseLetters);
+  return isMatch;
 };
 
 /* Expert Challenge */
