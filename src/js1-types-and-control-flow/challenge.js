@@ -64,7 +64,8 @@ export const addNumbers = () => {
 const password = "thisIsMyVeryLongPassword123456789";
 
 export const findLengthOfPassword = () => {
-  // Write your code here
+  const passwordLength = password.length;
+  return passwordLength;
 };
 
 /**
@@ -80,7 +81,15 @@ export const findLengthOfPassword = () => {
 const thing = "I am a thing";
 
 export const findType = () => {
-  // Write your code here
+  if (typeof thing === "string") {
+    return "This is a string";
+  } else if (typeof thing === "number") {
+    return "This is a number";
+  } else if (typeof thing === "boolean") {
+    return "This is a boolean";
+  } else {
+    return "I don't know what this thing is";
+  }
 };
 
 /**
@@ -93,7 +102,14 @@ export const findType = () => {
 const nameTagOption = "Timothy";
 
 export const getIsValidOnNameTag = () => {
-  // Write your code here
+  let suitableNameTag;
+  let nameTagLength = nameTagOption.length;
+  if (nameTagLength <= 8) {
+    suitableNameTag = true;
+  } else {
+    suitableNameTag = false;
+  }
+  return suitableNameTag;
 };
 
 /* Advanced Challenges */
