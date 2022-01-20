@@ -61,7 +61,13 @@ export const multiplyNumbers = (number1, number2) => {
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
 export const checkIfNewHighScore = (score, highScore) => {
-  /* Write your code here */
+  if (score > highScore) {
+    return "You got a new high score!";
+  } else if (score === highScore) {
+    return "So close!";
+  } else {
+    return "Better luck next time!";
+  }
 };
 
 /**
@@ -71,7 +77,8 @@ export const checkIfNewHighScore = (score, highScore) => {
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
  */
 export const celsiusToFahrenheit = (tempInCelsius) => {
-  /* Write your code here */
+  const tempInFarenheit = Math.round((tempInCelsius * 9) / 5 + 32);
+  return `${tempInCelsius} degrees celsius is ${tempInFarenheit} degrees fahrenheit`;
 };
 
 /**
@@ -84,7 +91,9 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
  * @returns {number} 47450
  */
 export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
-  /* Write your code here */
+  const snickersPerYear = snickersPerDay * 365;
+  const yearsRemaining = maxAge - age;
+  return snickersPerYear * yearsRemaining;
 };
 
 /* Advanced Challenges */

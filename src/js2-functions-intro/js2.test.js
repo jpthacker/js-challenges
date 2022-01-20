@@ -55,7 +55,7 @@ describe("multiplyNumbers() tests", () => {
   });
 });
 
-xdescribe("checkIfNewHighScore() tests", () => {
+describe("checkIfNewHighScore() tests", () => {
   it("Should have a return", () => {
     expect(checkIfNewHighScore(300, 325)).toBeDefined();
   });
@@ -73,7 +73,7 @@ xdescribe("checkIfNewHighScore() tests", () => {
   });
 });
 
-xdescribe("celsiusToFahrenheit() tests", () => {
+describe("celsiusToFahrenheit() tests", () => {
   it("Should have a return", () => {
     expect(celsiusToFahrenheit(15)).toBeDefined();
   });
@@ -89,7 +89,7 @@ xdescribe("celsiusToFahrenheit() tests", () => {
   });
 });
 
-xdescribe("calculateLifeTimeSupply() tests", () => {
+describe("calculateLifeTimeSupply() tests", () => {
   it("Should have a return", () => {
     expect(calculateLifetimeSupply(2, 25, 90)).toBeDefined();
   });
