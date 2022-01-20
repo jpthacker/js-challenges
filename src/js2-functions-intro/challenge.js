@@ -113,7 +113,34 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  /* Write your code here */
+  let gradeMessage;
+  switch (true) {
+    case score > 100:
+    case score < 0:
+    case typeof score !== "number":
+      gradeMessage = "Score unavailable";
+      break;
+    case score >= 80 && score <= 100:
+      gradeMessage = "A";
+      break;
+    case score >= 70 && score <= 79:
+      gradeMessage = "B";
+      break;
+    case score >= 60 && score <= 69:
+      gradeMessage = "C";
+      break;
+    case score >= 50 && score <= 59:
+      gradeMessage = "D";
+      break;
+    case score >= 40 && score <= 49:
+      gradeMessage = "E";
+      break;
+    case score >= 0 && score <= 39:
+      gradeMessage = "F";
+      break;
+  }
+
+  return gradeMessage;
 };
 
 /**
@@ -123,7 +150,9 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCircle = (radius) => {
-  /* Write your code here */
+  const area = Math.PI * radius * radius;
+  let approxArea = Math.round(area * 100) / 100;
+  return approxArea;
 };
 
 /* Expert Challenge */
@@ -144,5 +173,44 @@ export const calculateAreaOfCircle = (radius) => {
  * @param {string} name John
  */
 export const getStudentSummary = (score, name) => {
-  /* Write your code here */
+  let grade;
+  let message;
+  switch (true) {
+    case score > 100:
+    case score < 0:
+    case typeof score !== "number":
+      grade = "Score unavailable";
+      message =
+        "My apologies John, there's been an error in processing your grade.";
+      break;
+    case score >= 80 && score <= 100:
+      grade = "A";
+      message = "Congratulations " + name + "! You achieved a grade of A.";
+      break;
+    case score >= 70 && score <= 79:
+      grade = "B";
+      message = "Well done " + name + "! You achieved a grade of B.";
+      break;
+    case score >= 60 && score <= 69:
+      grade = "C";
+      message = "Nicely done " + name + "! You achieved a grade of C.";
+      break;
+    case score >= 50 && score <= 59:
+      grade = "D";
+      message = "That's okay " + name + ". You achieved a grade of D.";
+      break;
+    case score >= 40 && score <= 49:
+      grade = "E";
+      message = "Too bad " + name + ". You achieved a grade of E.";
+      break;
+    case score >= 0 && score <= 39:
+      grade = "F";
+      message =
+        "Sorry " +
+        name +
+        ". You achieved a grade of F. There's always next year.";
+      break;
+  }
+
+  return message;
 };
