@@ -65,7 +65,15 @@ export const totalScores = (scoreArr) => {
  */
 
 export const totalRange = (rangeMax) => {
-  return;
+  let sumOfNumbers = 0;
+  let numberRange = [];
+  for (let i = 0; i < rangeMax + 1; ++i) {
+    numberRange.push(i);
+  }
+  for (let i = 0; i < numberRange.length; i++) {
+    sumOfNumbers += numberRange[i];
+  }
+  return sumOfNumbers;
 };
 
 /**
@@ -76,7 +84,10 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  return;
+  const result = [...itemsArr];
+  const lastItem = result.pop();
+  result.unshift(lastItem);
+  return result;
 };
 
 /**
@@ -94,7 +105,14 @@ export const moveFirstAndLastItems = (itemsArr) => {
  */
 
 export const removeEvenNumbers = (numberArr) => {
-  return;
+  let onlyOddNumbers = [];
+  for (let i = 0; i < numberArr.length; i++) {
+    let thisNumber = numberArr[i];
+    if (numberArr[i] % 2 === 1) {
+      onlyOddNumbers.push(thisNumber);
+    }
+  }
+  return onlyOddNumbers;
 };
 
 /**
