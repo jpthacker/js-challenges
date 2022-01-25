@@ -105,7 +105,7 @@ export const moveFirstAndLastItems = (itemsArr) => {
  */
 
 export const removeEvenNumbers = (numberArr) => {
-  let onlyOddNumbers = [];
+  const onlyOddNumbers = [];
   for (let i = 0; i < numberArr.length; i++) {
     let thisNumber = numberArr[i];
     if (numberArr[i] % 2 === 1) {
@@ -128,7 +128,13 @@ export const removeEvenNumbers = (numberArr) => {
  */
 
 export const generateAverage = (numberArr) => {
-  return;
+  let total = 0;
+  for (let i = 0; i < numberArr.length; i++) {
+    total += numberArr[i];
+  }
+  const avg = total / numberArr.length;
+  const avgRounded = Math.ceil(avg) || 0;
+  return avgRounded;
 };
 
 /**
@@ -139,7 +145,9 @@ export const generateAverage = (numberArr) => {
  */
 
 export const reverseOrder = (toReverseArr) => {
-  return;
+  const origArray = [...toReverseArr];
+  const reveredArray = origArray.reverse();
+  return reveredArray;
 };
 
 /**
