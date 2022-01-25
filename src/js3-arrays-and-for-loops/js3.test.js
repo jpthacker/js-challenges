@@ -206,7 +206,7 @@ describe("Testing reverseOrder()", () => {
   });
 });
 
-xdescribe("Testing generateHighscores()", () => {
+describe("Testing generateHighscores()", () => {
   let players, playerScores, highscores;
   beforeEach(() => {
     players = ["Andy", "Bex", "Calum"];
