@@ -206,10 +206,29 @@ export const generateHighscores = (playersArr, scoresArr) => {
  * @return {string} "ertnyecpd"
  */
 
-// export const encryptString = (toEncrypt) => {
-//   return;
-// };
-
 export const encryptString = (toEncrypt) => {
-  return;
+  // sorts the toEncrypt characters into 3 groups depending on order of appearance
+  const charactersArray = [...toEncrypt];
+  const charactersGroupOne = [];
+  const charactersGroupTwo = [];
+  const charactersGroupThree = [];
+  for (let i = 0; i < charactersArray.length; i++) {
+    if (i === 0 || i % 3 === 0) {
+      charactersGroupOne.push(charactersArray[i]);
+    } else if (i === 1 || i % 3 === 1) {
+      charactersGroupTwo.push(charactersArray[i]);
+    } else if (i === 2 || i % 3 === 2) {
+      charactersGroupThree.push(charactersArray[i]);
+    }
+  }
+
+  // Concatenates the characters from each group into a new encrypted message in correct order
+  let messageArray = charactersGroupOne.concat(
+    charactersGroupTwo,
+    charactersGroupThree
+  );
+
+  //converts encrypted message array into a string
+  const encryptedMessage = messageArray.join("");
+  return encryptedMessage;
 };

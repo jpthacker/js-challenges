@@ -260,7 +260,7 @@ describe("Testing generateHighscores()", () => {
   });
 });
 
-xdescribe("Testing encryptString()", () => {
+describe("Testing encryptString()", () => {
   it("Should NOT return undefined", () => {
     expect(encryptString("  defined")).toBeDefined();
   });
