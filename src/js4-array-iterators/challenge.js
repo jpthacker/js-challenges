@@ -22,7 +22,8 @@
  */
 
 export const removeFalseValues = (booleanArr) => {
-  return;
+  const trueBooleans = booleanArr.filter((boolean) => boolean === true);
+  return trueBooleans;
 };
 
 /**
@@ -34,7 +35,10 @@ export const removeFalseValues = (booleanArr) => {
  */
 
 export const createPercentageList = (numbersArr) => {
-  return;
+  const percentages = numbersArr.map(
+    (number) => (number * 100).toFixed(0) + "%"
+  );
+  return percentages;
 };
 
 /**
@@ -47,7 +51,10 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPoessessions = (possessionsArr, name) => {
-  return;
+  const discoItems = possessionsArr.map(
+    (possessionsArr) => name + " " + possessionsArr
+  );
+  return discoItems;
 };
 
 /**
@@ -72,7 +79,10 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-  return;
+  const seperator = "+";
+  const numberStringArray = numberString.split(seperator);
+  const numberArray = numberStringArray.map(Number);
+  return numberArray;
 };
 
 /**
@@ -84,7 +94,15 @@ export const convertStringToNumbersArray = (numberString) => {
  */
 
 export const createOddEvenArray = (numberString) => {
-  return;
+  const seperatedNumbers = numberString.split("+");
+  const numberBoolean = seperatedNumbers.map((testCase) => {
+    if (testCase % 2 === 0) {
+      return "even";
+    } else {
+      return "odd";
+    }
+  });
+  return numberBoolean;
 };
 
 /**
@@ -97,7 +115,8 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-  return;
+  const filteredBooks = booksArr.filter((book) => book.includes(searchTerm));
+  return filteredBooks;
 };
 
 /**
