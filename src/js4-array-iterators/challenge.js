@@ -136,12 +136,7 @@ export const filterBooksBySearch = (booksArr, searchTerm) => {
  */
 
 export const formatStringArray = (stringArr) => {
-  const cleanedArr = stringArr.forEach((string) => {
-    const cleanStr = string.trim().toLowerCase();
-    return cleanStr;
-  });
-
-  // console.log(???)
+  const cleanedArr = stringArr.map((string) => string.trim().toLowerCase());
 
   const joinedString = cleanedArr.join("+");
 
@@ -162,7 +157,15 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-  return;
+  const filteredArr = string.replace(/[^a-z]+/gi, "").split("");
+  for (let i = 0; i < filteredArr.length; i++) {
+    if (i % 2 != 0) {
+      filteredArr[i] = filteredArr[i].toLowerCase();
+    } else {
+      filteredArr[i] = filteredArr[i].toUpperCase();
+    }
+  }
+  return filteredArr;
 };
 
 /**
