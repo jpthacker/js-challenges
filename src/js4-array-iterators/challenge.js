@@ -192,5 +192,14 @@ export const formatString = (string) => {
  */
 
 export const fizzBuzz = (mixedArray) => {
-  return;
+  const cleanArr = mixedArray.filter(
+    (element) => element > 0 && Number(element)
+  );
+  const fizzBuzzedArr = cleanArr.map((number) => {
+    let string = "";
+    if (number % 3 == 0) string += "Fizz";
+    if (number % 5 == 0) string += "Buzz";
+    return string || number.toString();
+  });
+  return fizzBuzzedArr;
 };
