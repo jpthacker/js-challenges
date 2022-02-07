@@ -298,7 +298,7 @@ describe("Testing totalNestedScoresArr()", () => {
   });
 });
 
-xdescribe("Testing encryptString()", () => {
+describe("Testing encryptString()", () => {
   it("Should return a string", () => {
     expect(typeof encryptString("defined")).toBe("string");
     expect(typeof encryptString("disco flex")).toBe("string");

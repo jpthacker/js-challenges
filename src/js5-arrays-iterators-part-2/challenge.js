@@ -204,5 +204,14 @@ export const totalNestedScoresArr = (scoresArr) => {
  */
 
 export const encryptString = (toEncrypt) => {
-  return;
+  const pivot = [[], [], []];
+  for (let i = 0; i < toEncrypt.length; i++) {
+    pivot[i % 3].push(toEncrypt.charAt(i));
+  }
+  const encryptedMsg = pivot
+    .flat(Infinity)
+    .reduce((message, current, index, array) => {
+      return message + current;
+    }, "");
+  return encryptedMsg;
 };
