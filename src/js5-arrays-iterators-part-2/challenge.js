@@ -208,10 +208,8 @@ export const encryptString = (toEncrypt) => {
   for (let i = 0; i < toEncrypt.length; i++) {
     pivot[i % 3].push(toEncrypt.charAt(i));
   }
-  const encryptedMsg = pivot
-    .flat(Infinity)
-    .reduce((message, current, index, array) => {
-      return message + current;
-    }, "");
+  const encryptedMsg = pivot.flat(Infinity).reduce((message, current) => {
+    return message + current;
+  }, "");
   return encryptedMsg;
 };
