@@ -145,7 +145,12 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return;
+  let palindromeBoolean;
+  const palindromeString = reverseString(stringOne);
+  if (palindromeString === stringOne) {
+    palindromeBoolean = true;
+  } else palindromeBoolean = false;
+  return palindromeBoolean;
 };
 
 /**
@@ -159,7 +164,14 @@ export const checkStringPalindrome = (stringOne) => {
  */
 
 export const totalNestedScoresArr = (scoresArr) => {
-  return;
+  const nestedScores = scoresArr.map((score) => {
+    let flatScore;
+    if (Array.isArray(score)) {
+      flatScore = score.flat(Infinity).reduce((sum, n) => sum + n, 0);
+    } else flatScore = score;
+    return flatScore;
+  });
+  return nestedScores;
 };
 
 /**
