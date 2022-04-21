@@ -71,7 +71,11 @@ export const makeSpaceship = (
  * @returns {{name: string, username: string}} User - The user object with the same username or a new one
  */
 export const setUserName = (user, username) => {
-  /* Write code here */
+  const checkForUserName = "username" in user;
+  if (checkForUserName === false) {
+    user.username = username;
+  }
+  return user;
 };
 
 /**
@@ -82,7 +86,15 @@ export const setUserName = (user, username) => {
  * @returns {{fullName: string, firstName: string, lastName: string}} A customer object from the database with the name separated into first and last
  */
 export const splitFullNameToFirstAndLast = (customer) => {
-  /* Write code here */
+  const nameArray = customer.fullName.split(/[, ]+/);
+  for (let i = 0; i < nameArray.length; i++) {
+    if (i === 0) {
+      customer.firstName = nameArray[i];
+    } else {
+      customer.lastName = nameArray[i];
+    }
+  }
+  return customer;
 };
 
 /**
@@ -95,7 +107,8 @@ export const splitFullNameToFirstAndLast = (customer) => {
  * @returns {any} value - The value you have accessed on the object
  */
 export const accessGivenKey = (object, key) => {
-  /* Write code here */
+  const givenKey = object[key];
+  return givenKey;
 };
 
 /* Advanced Challenges */

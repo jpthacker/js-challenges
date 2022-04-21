@@ -118,7 +118,7 @@ describe("setUserName() tests", () => {
   });
 });
 
-xdescribe("splitFullNameToFirstAndLast() tests", () => {
+describe("splitFullNameToFirstAndLast() tests", () => {
   const customer1 = { fullName: "Barry Chuckle" };
   const customer2 = { fullName: "Paul Chuckle" };
 
@@ -137,7 +137,7 @@ xdescribe("splitFullNameToFirstAndLast() tests", () => {
   });
 });
 
-xdescribe("accessGivenKey() tests", () => {
+describe("accessGivenKey() tests", () => {
   const person = {
     name: "Joe Bloggs",
     height: 170,
