@@ -121,7 +121,10 @@ export const accessGivenKey = (object, key) => {
  * @returns {string} An address string for a shipping label
  */
 export const getUserAddress = (user) => {
-  /* Write code here */
+  const userAddressObj = user.address;
+  const userAddressArr = Object.values(userAddressObj);
+  const userAddress = userAddressArr.join(" ");
+  return userAddress;
 };
 
 /**
@@ -133,7 +136,15 @@ export const getUserAddress = (user) => {
  * @return {{id: number, name: string, allergies: string[], safeAllergens: string[]}} customer
  */
 export const setSafeAllergens = (customer, allergenList) => {
-  /* Write code here */
+  const customerAllergies = customer.allergies;
+  const safeAllergens = [];
+  for (let i = 0; i < allergenList.length; i++) {
+    if (!customerAllergies.includes(allergenList[i])) {
+      safeAllergens.push(allergenList[i]);
+    }
+  }
+  customer.safeAllergens = safeAllergens;
+  return customer;
 };
 
 /* Expert Challenge */

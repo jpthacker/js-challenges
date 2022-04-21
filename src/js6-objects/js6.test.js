@@ -162,7 +162,7 @@ describe("accessGivenKey() tests", () => {
   });
 });
 
-xdescribe("getUserAddress() tests", () => {
+describe("getUserAddress() tests", () => {
   const user1 = {
     id: 101,
     name: "Harry Potter",
@@ -193,7 +193,7 @@ xdescribe("getUserAddress() tests", () => {
   });
 });
 
-xdescribe("setSafeAllergens() tests", () => {
+describe("setSafeAllergens() tests", () => {
   const allergenList = [
     "celery",
     "gluten",
