@@ -136,13 +136,13 @@ export const getUserAddress = (user) => {
  * @return {{id: number, name: string, allergies: string[], safeAllergens: string[]}} customer
  */
 export const setSafeAllergens = (customer, allergenList) => {
-  const customerAllergies = customer.allergies;
   const safeAllergens = [];
   for (let i = 0; i < allergenList.length; i++) {
-    if (!customerAllergies.includes(allergenList[i])) {
+    if (!customer.allergies.includes(allergenList[i])) {
       safeAllergens.push(allergenList[i]);
     }
   }
+  //Realised I should have used 'filter' here.
   customer.safeAllergens = safeAllergens;
   return customer;
 };
@@ -158,5 +158,9 @@ export const setSafeAllergens = (customer, allergenList) => {
  * @returns {{id: number, location: string, sku: string, name: string, price: number, isAvailable: boolean}}
  */
 export const mergeFurniture = (furnitureLocationData, furnitureProductData) => {
-  /* Write code here */
+  const furnitueData = {
+    ...furnitureLocationData,
+    ...furnitureProductData,
+  };
+  return furnitueData;
 };
