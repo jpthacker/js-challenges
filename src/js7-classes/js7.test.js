@@ -392,7 +392,7 @@ describe("Testing Modal class", () => {
   });
 });
 
-xdescribe("Testing BookShelf class", () => {
+describe("Testing BookShelf class", () => {
   let bookShelf;
   const bookArray = [
     "JavaScript: The Definitive Guide",

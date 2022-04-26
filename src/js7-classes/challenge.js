@@ -352,13 +352,18 @@ export class BookShelf {
    */
 
   // WRITE LATEST BOOK GETTER HERE
-
+  get latestBook() {
+    return this.booksOnShelf[this.booksOnShelf.length - 1];
+  }
   /**
    * A setter that adds a new book to the list of books.
    * @param {string} "Eloquent JavaScript"
    */
 
   // WRITE ADD BOOK TO SHELF SETTER HERE
+  set addBookToShelf(newBook) {
+    this.booksOnShelf.push(newBook);
+  }
 }
 
 /**
