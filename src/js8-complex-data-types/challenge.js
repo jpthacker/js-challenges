@@ -115,11 +115,17 @@ export const totalShoppingBasket = (shoppingBasketArr) => {
  * @returns {{id: number, name: string, ingredients: string[], country: string}[]} An array of cleaned meal objects
  */
 export const getImportantKeys = (mealsArr) => {
-  // Write code here
+  const cleanedMealsArr = mealsArr.map((meal) => {
+    const newMeal = { ...meal };
+    delete newMeal.timeStamp;
+    delete newMeal.userCreated;
+    return newMeal;
+  });
+  return cleanedMealsArr;
 };
 
 /**
- * A function which takes an array of meal objects and check if every object contains the necessary keys. If a key is
+ * A function which takes an array of meal objects and checks if every object contains the necessary keys. If a key is
  * missing it adds a default value instead.
  * default values:
  * isVegetarian = false
@@ -129,7 +135,17 @@ export const getImportantKeys = (mealsArr) => {
  * @returns {{id: number, name: string, ingredients: string[], country: string, isVegetarian: boolean, timeToCook: number}[]}
  */
 export const setImportantKeys = (mealsArr) => {
-  // Write code here
+  const checkedMealsArr = mealsArr.map((meal) => {
+    const checkedMeal = { ...meal };
+    if (!checkedMeal.isVegetarian) {
+      checkedMeal.isVegetarian = false;
+    }
+    if (!checkedMeal.timeToCook) {
+      checkedMeal.timeToCook = 15;
+    }
+    return checkedMeal;
+  });
+  return checkedMealsArr;
 };
 
 /* Expert Challenge */
