@@ -9,42 +9,46 @@ const {
   totalShoppingBasket,
   getImportantKeys,
   setImportantKeys,
-  cleanCocktailResponseData
+  cleanCocktailResponseData,
 } = challenge;
 
 describe("Foundation level challenges", () => {
   const employeeData = [
     {
       name: "Edith Gibson",
-      quote: "Your body is precious. It is our vehicle for awakening. Treat it with care.",
+      quote:
+        "Your body is precious. It is our vehicle for awakening. Treat it with care.",
       yearsEmployed: 14,
-      isManagement: true
+      isManagement: true,
     },
     {
       name: "Adam Holmes",
-      quote: "I detest life-insurance agents; they always argue that I shall some day die, which is not so.",
+      quote:
+        "I detest life-insurance agents; they always argue that I shall some day die, which is not so.",
       yearsEmployed: 1,
-      isManagement: false
+      isManagement: false,
     },
     {
       name: "Fenton Perry",
       quote:
         "The Fifth Amendment is an old friend and a good friend. It is one of the great landmarks in man's struggle to be free of tyranny, to be decent and civilized.",
       yearsEmployed: 19,
-      isManagement: false
+      isManagement: false,
     },
     {
       name: "Adelaide Owens",
-      quote: "Columbus found a world, and had no chart save one that Faith deciphered in the skies.",
+      quote:
+        "Columbus found a world, and had no chart save one that Faith deciphered in the skies.",
       yearsEmployed: 9,
-      isManagement: false
+      isManagement: false,
     },
     {
       name: "Adison Crawford",
-      quote: "Only learn to seize good fortune, for good fortune is always here.",
+      quote:
+        "Only learn to seize good fortune, for good fortune is always here.",
       yearsEmployed: 7,
-      isManagement: true
-    }
+      isManagement: true,
+    },
   ];
 
   describe("getEmployeeQuotes() tests", () => {
@@ -54,31 +58,33 @@ describe("Foundation level challenges", () => {
         "I detest life-insurance agents; they always argue that I shall some day die, which is not so.",
         "The Fifth Amendment is an old friend and a good friend. It is one of the great landmarks in man's struggle to be free of tyranny, to be decent and civilized.",
         "Columbus found a world, and had no chart save one that Faith deciphered in the skies.",
-        "Only learn to seize good fortune, for good fortune is always here."
+        "Only learn to seize good fortune, for good fortune is always here.",
       ]);
     });
   });
 
-  xdescribe("getTheManagers() tests", () => {
+  describe("getTheManagers() tests", () => {
     it("Should return an array containing only employees where isManagement is true", () => {
       expect(getTheManagers(employeeData)).toStrictEqual([
         {
           name: "Edith Gibson",
-          quote: "Your body is precious. It is our vehicle for awakening. Treat it with care.",
+          quote:
+            "Your body is precious. It is our vehicle for awakening. Treat it with care.",
           yearsEmployed: 14,
-          isManagement: true
+          isManagement: true,
         },
         {
           name: "Adison Crawford",
-          quote: "Only learn to seize good fortune, for good fortune is always here.",
+          quote:
+            "Only learn to seize good fortune, for good fortune is always here.",
           yearsEmployed: 7,
-          isManagement: true
-        }
+          isManagement: true,
+        },
       ]);
     });
   });
 
-  xdescribe("getNumberOfKeys() tests", () => {
+  describe("getNumberOfKeys() tests", () => {
     const object1 = { a: 1, b: 2 };
     const object2 = { a: 1, b: 2, c: 3, d: 4 };
     const object3 = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 };
@@ -101,32 +107,32 @@ describe("Intermediate level challenges", () => {
       name: "jeans",
       price: 30,
       hasFreeShipping: false,
-      quantity: 2
+      quantity: 2,
     },
     {
       name: "hoodie",
       price: 35,
       hasFreeShipping: false,
-      quantity: 1
+      quantity: 1,
     },
     {
       name: "pants",
       price: 5,
       hasFreeShipping: true,
-      quantity: 5
+      quantity: 5,
     },
     {
       name: "socks",
       price: 5,
       hasFreeShipping: true,
-      quantity: 1
+      quantity: 1,
     },
     {
       name: "shirt",
       price: 20,
       hasFreeShipping: false,
-      quantity: 3
-    }
+      quantity: 3,
+    },
   ];
 
   const shoppingBasketWithTotals = [
@@ -135,36 +141,36 @@ describe("Intermediate level challenges", () => {
       price: 35,
       hasFreeShipping: false,
       quantity: 1,
-      totalPrice: 35
+      totalPrice: 35,
     },
     {
       name: "jeans",
       price: 30,
       hasFreeShipping: false,
       quantity: 2,
-      totalPrice: 60
+      totalPrice: 60,
     },
     {
       name: "shirt",
       price: 20,
       hasFreeShipping: false,
       quantity: 3,
-      totalPrice: 60
+      totalPrice: 60,
     },
     {
       name: "pants",
       price: 5,
       hasFreeShipping: true,
       quantity: 5,
-      totalPrice: 25
+      totalPrice: 25,
     },
     {
       name: "socks",
       price: 5,
       hasFreeShipping: true,
       quantity: 1,
-      totalPrice: 5
-    }
+      totalPrice: 5,
+    },
   ];
 
   xdescribe("findMostExpensiveItem() tests", () => {
@@ -178,7 +184,7 @@ describe("Intermediate level challenges", () => {
         name: "hoodie",
         price: 35,
         hasFreeShipping: false,
-        quantity: 1
+        quantity: 1,
       });
     });
   });
@@ -199,7 +205,9 @@ describe("Intermediate level challenges", () => {
     });
 
     it("Should accurately total each shopping item", () => {
-      expect(settotalPrice(shoppingBasket).sort((a, b) => a.price - b.price)).toStrictEqual(
+      expect(
+        settotalPrice(shoppingBasket).sort((a, b) => a.price - b.price)
+      ).toStrictEqual(
         shoppingBasketWithTotals.sort((a, b) => a.price - b.price)
       );
     });
@@ -207,7 +215,9 @@ describe("Intermediate level challenges", () => {
 
   xdescribe("totalShoppingBasket() tests", () => {
     it("Should return a number", () => {
-      expect(typeof totalShoppingBasket(shoppingBasketWithTotals)).toBe("number");
+      expect(typeof totalShoppingBasket(shoppingBasketWithTotals)).toBe(
+        "number"
+      );
     });
 
     it("Should accurately total all objects", () => {
@@ -216,7 +226,7 @@ describe("Intermediate level challenges", () => {
   });
 });
 
-describe("getImportantKeys() tests", () => {
+xdescribe("getImportantKeys() tests", () => {
   const mealsArr = [
     {
       id: 10,
@@ -224,7 +234,7 @@ describe("getImportantKeys() tests", () => {
       ingredients: ["rice", "tomato", "chicken", "curry powder"],
       country: "India",
       timeStamp: 1612177931682,
-      userCreated: "johnnyboiXX"
+      userCreated: "johnnyboiXX",
     },
     {
       id: 11,
@@ -232,7 +242,7 @@ describe("getImportantKeys() tests", () => {
       ingredients: ["bread", "cheese", "butter"],
       country: "America",
       timeStamp: 1612112931682,
-      userCreated: "glorfindelrox"
+      userCreated: "glorfindelrox",
     },
     {
       id: 12,
@@ -240,8 +250,8 @@ describe("getImportantKeys() tests", () => {
       ingredients: ["beef mince", "onion", "mustard", "salt", "pepper"],
       country: "America",
       timeStamp: 1612177917682,
-      userCreated: "iAmTonyHawk"
-    }
+      userCreated: "iAmTonyHawk",
+    },
   ];
 
   it("Should not modify the original array", () => {
@@ -253,7 +263,7 @@ describe("getImportantKeys() tests", () => {
       id: 10,
       name: "Tikka Masala",
       ingredients: ["rice", "tomato", "chicken", "curry powder"],
-      country: "India"
+      country: "India",
     });
   });
 
@@ -263,20 +273,20 @@ describe("getImportantKeys() tests", () => {
         id: 10,
         name: "Tikka Masala",
         ingredients: ["rice", "tomato", "chicken", "curry powder"],
-        country: "India"
+        country: "India",
       },
       {
         id: 11,
         name: "Grilled Cheese",
         ingredients: ["bread", "cheese", "butter"],
-        country: "America"
+        country: "America",
       },
       {
         id: 12,
         name: "Gourmet Burger",
         ingredients: ["beef mince", "onion", "mustard", "salt", "pepper"],
-        country: "America"
-      }
+        country: "America",
+      },
     ]);
   });
 });
@@ -288,14 +298,14 @@ xdescribe("setImportantKeys() tests", () => {
       name: "Tikka Masala",
       ingredients: ["rice", "tomato", "chicken", "curry powder"],
       country: "India",
-      timeToCook: 60
+      timeToCook: 60,
     },
     {
       id: 11,
       name: "Grilled Cheese",
       ingredients: ["bread", "cheese", "butter"],
       country: "America",
-      isVegetarian: true
+      isVegetarian: true,
     },
     {
       id: 12,
@@ -303,8 +313,8 @@ xdescribe("setImportantKeys() tests", () => {
       ingredients: ["beef mince", "onion", "mustard", "salt", "pepper"],
       country: "America",
       isVegetarian: false,
-      timeToCook: 45
-    }
+      timeToCook: 45,
+    },
   ];
 
   it("Should not modify the original array", () => {
@@ -331,7 +341,7 @@ xdescribe("setImportantKeys() tests", () => {
         ingredients: ["rice", "tomato", "chicken", "curry powder"],
         country: "India",
         isVegetarian: false,
-        timeToCook: 60
+        timeToCook: 60,
       },
       {
         id: 11,
@@ -339,7 +349,7 @@ xdescribe("setImportantKeys() tests", () => {
         ingredients: ["bread", "cheese", "butter"],
         country: "America",
         isVegetarian: true,
-        timeToCook: 15
+        timeToCook: 15,
       },
       {
         id: 12,
@@ -347,8 +357,8 @@ xdescribe("setImportantKeys() tests", () => {
         ingredients: ["beef mince", "onion", "mustard", "salt", "pepper"],
         country: "America",
         isVegetarian: false,
-        timeToCook: 45
-      }
+        timeToCook: 45,
+      },
     ]);
   });
 });
@@ -367,33 +377,35 @@ xdescribe("cleanCocktailResponseData() tests", () => {
       strIngredient3: "Sugar",
       strIngredient4: null,
       strIngredient5: null,
-      strIngredient6: null
+      strIngredient6: null,
     },
     {
       idDrink: 11422,
       strDrink: "Godchild",
       strCategory: "Ordinary Drink",
       strAlcoholic: "Alcoholic",
-      strInstructions: "Shake all ingredients well with cracked ice, strain into a champagne flute, and serve.",
+      strInstructions:
+        "Shake all ingredients well with cracked ice, strain into a champagne flute, and serve.",
       strIngredient1: "Vodka",
       strIngredient2: "Amaretto",
       strIngredient3: "Heavy cream",
       strIngredient4: null,
       strIngredient5: null,
-      strIngredient6: null
+      strIngredient6: null,
     },
     {
       idDrink: 11288,
       strDrink: "Cuba Libre",
       strCategory: "Ordinary Drink",
       strAlcoholic: "Alcoholic",
-      strInstructions: "Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.",
+      strInstructions:
+        "Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.",
       strIngredient1: "Light rum",
       strIngredient2: "Lime",
       strIngredient3: "Coca-Cola",
       strIngredient4: null,
       strIngredient5: null,
-      strIngredient6: null
+      strIngredient6: null,
     },
     {
       idDrink: 12101,
@@ -407,39 +419,75 @@ xdescribe("cleanCocktailResponseData() tests", () => {
       strIngredient3: "Lemon peel",
       strIngredient4: null,
       strIngredient5: null,
-      strIngredient6: null
-    }
+      strIngredient6: null,
+    },
   ];
 
   it("Should not mutate the original array", () => {
-    expect(cleanCocktailResponseData(mockCocktailData)).not.toStrictEqual(mockCocktailData);
+    expect(cleanCocktailResponseData(mockCocktailData)).not.toStrictEqual(
+      mockCocktailData
+    );
   });
 
   it("Should remove old keys", () => {
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("idDrink");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strDrink");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strCategory");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strAlcholohic");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strInstructions");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strIngredients1");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strIngredients2");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strIngredients3");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strIngredients4");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strIngredients5");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty("strIngredients6");
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "idDrink"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strDrink"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strCategory"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strAlcholohic"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strInstructions"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strIngredients1"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strIngredients2"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strIngredients3"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strIngredients4"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strIngredients5"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
+      "strIngredients6"
+    );
   });
 
   it("Should rename keys", () => {
     expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty("id");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty("drink");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty("category");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty("alcoholic");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty("instructions");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty("ingredients");
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
+      "drink"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
+      "category"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
+      "alcoholic"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
+      "instructions"
+    );
+    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
+      "ingredients"
+    );
   });
 
   it("Should add an array for the ingredients", () => {
-    expect(Array.isArray(cleanCocktailResponseData(mockCocktailData)[0].ingredients)).toBe(true);
+    expect(
+      Array.isArray(cleanCocktailResponseData(mockCocktailData)[0].ingredients)
+    ).toBe(true);
   });
 
   it("Should match given structure", () => {
@@ -451,23 +499,25 @@ xdescribe("cleanCocktailResponseData() tests", () => {
         alcoholic: "Non alcoholic",
         instructions:
           "Mix together. Blend at highest blender speed for about 1 minute. Pour into a glass and drink with a straw. Notes: This works best if everything is cold (if you make fresh coffee, mix it with the milk and let it sit in the fridge for 1/2 hour. If it is not frothy, add more milk, or even just some more milk powder. The froth gradually turns to liquid at the bottom of the glass, so you will find that you can sit and drink this for about 1/2 hour, with more iced coffee continually appearing at the bottom. Very refreshing.",
-        ingredients: ["Coffee", "Milk", "Sugar"]
+        ingredients: ["Coffee", "Milk", "Sugar"],
       },
       {
         id: 11422,
         drink: "Godchild",
         category: "Ordinary Drink",
         alcoholic: "Alcoholic",
-        instructions: "Shake all ingredients well with cracked ice, strain into a champagne flute, and serve.",
-        ingredients: ["Vodka", "Amaretto", "Heavy cream"]
+        instructions:
+          "Shake all ingredients well with cracked ice, strain into a champagne flute, and serve.",
+        ingredients: ["Vodka", "Amaretto", "Heavy cream"],
       },
       {
         id: 11288,
         drink: "Cuba Libre",
         category: "Ordinary Drink",
         alcoholic: "Alcoholic",
-        instructions: "Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.",
-        ingredients: ["Light rum", "Lime", "Coca-Cola"]
+        instructions:
+          "Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.",
+        ingredients: ["Light rum", "Lime", "Coca-Cola"],
       },
       {
         id: 12101,
@@ -476,8 +526,8 @@ xdescribe("cleanCocktailResponseData() tests", () => {
         alcoholic: "Alcoholic",
         instructions:
           "Pour the Scotch and Drambuie into an old-fashioned glass almost filled with ice cubes. Stir well. Garnish with the lemon twist.",
-        ingredients: ["Scotch", "Drambuie", "Lemon peel"]
-      }
+        ingredients: ["Scotch", "Drambuie", "Lemon peel"],
+      },
     ]);
   });
 });
