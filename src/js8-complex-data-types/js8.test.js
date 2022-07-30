@@ -173,7 +173,7 @@ describe("Intermediate level challenges", () => {
     },
   ];
 
-  xdescribe("findMostExpensiveItem() tests", () => {
+  describe("findMostExpensiveItem() tests", () => {
     it("Should return a single object", () => {
       expect(findMostExpensiveItem(shoppingBasket)).toHaveProperty("name");
       expect(findMostExpensiveItem(shoppingBasket).name).toBe("hoodie");
@@ -189,7 +189,7 @@ describe("Intermediate level challenges", () => {
     });
   });
 
-  xdescribe("settotalPrice() tests", () => {
+  describe("settotalPrice() tests", () => {
     it("Should return an array", () => {
       expect(Array.isArray(settotalPrice(shoppingBasket))).toBe(true);
     });
@@ -213,7 +213,7 @@ describe("Intermediate level challenges", () => {
     });
   });
 
-  xdescribe("totalShoppingBasket() tests", () => {
+  describe("totalShoppingBasket() tests", () => {
     it("Should return a number", () => {
       expect(typeof totalShoppingBasket(shoppingBasketWithTotals)).toBe(
         "number"

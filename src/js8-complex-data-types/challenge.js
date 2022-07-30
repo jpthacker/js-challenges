@@ -60,11 +60,14 @@ export const getNumberOfKeys = (object) => {
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number}} The most expensive item in the shopping basket
  */
 export const findMostExpensiveItem = (shoppingBasketArr) => {
-  // Write code here
+  const sortedArray = shoppingBasketArr.sort((a, b) => {
+    return b.price - a.price;
+  });
+  return sortedArray[0];
 };
 
 /**
- * A function which add a new key of totalPrice to each shopping basket item in the array where total cost is
+ * A function which adds a new key of totalPrice to each shopping basket item in the array where total cost is
  * the price * the quantity of items ordered i.e.
  * {
  *  name: "jeans",
@@ -79,7 +82,13 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number, totalPrice: number}[]} A new array where each object has had a total price added to it
  */
 export const settotalPrice = (shoppingBasketArr) => {
-  // Write code here
+  const totalPriceBasketArr = shoppingBasketArr.map((item) => {
+    const newItem = { ...item };
+    const totalPrice = newItem.price * newItem.quantity;
+    newItem.totalPrice = totalPrice;
+    return newItem;
+  });
+  return totalPriceBasketArr;
 };
 
 /**
@@ -89,7 +98,11 @@ export const settotalPrice = (shoppingBasketArr) => {
  * @returns {number} The total cost of the order
  */
 export const totalShoppingBasket = (shoppingBasketArr) => {
-  // Write code here
+  let totalCost = 0;
+  shoppingBasketArr.forEach((item) => {
+    totalCost += item.totalPrice;
+  });
+  return totalCost;
 };
 
 /* Advanced Challenges */
