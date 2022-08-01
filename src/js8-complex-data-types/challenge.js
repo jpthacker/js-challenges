@@ -177,5 +177,25 @@ export const setImportantKeys = (mealsArr) => {
  * }[]} A Cleaned array of cocktail data
  */
 export const cleanCocktailResponseData = (cocktailData) => {
-  // Write code here
+  const cleanedCocktailData = cocktailData.map((drink) => {
+    const ingredientsArr = [];
+    const cleanedDrink = {};
+    Object.entries(drink).forEach(([key, val]) => {
+      if (key === "idDrink") {
+        cleanedDrink.id = val;
+      } else if (key.includes("strIngredient")) {
+        if (val) {
+          ingredientsArr.push(val);
+        } else {
+          delete cleanedDrink[key];
+        }
+      } else {
+        const keyString = key.toString().toLowerCase().replace("str", "");
+        cleanedDrink[keyString] = val;
+      }
+    });
+    cleanedDrink.ingredients = ingredientsArr;
+    return cleanedDrink;
+  });
+  return cleanedCocktailData;
 };

@@ -363,7 +363,7 @@ describe("setImportantKeys() tests", () => {
   });
 });
 
-xdescribe("cleanCocktailResponseData() tests", () => {
+describe("cleanCocktailResponseData() tests", () => {
   const mockCocktailData = [
     {
       idDrink: 12768,
