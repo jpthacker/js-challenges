@@ -51,7 +51,7 @@ export const filterByLength = (names) => {
 };
 
 /**
- * A function which takes 2 arguments, an array of number and a reducer value.
+ * A function which takes 2 arguments, an array of numbers and a reducer value.
  * Return a new array which has reduced the value of each number in the array by the reducer amount,
  * while also making sure the values in the array are between 0 and 255
  * @param {array} numbers an array of 3 numbers
