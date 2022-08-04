@@ -306,7 +306,7 @@ describe("setDescription() tests", () => {
   });
 });
 
-xdescribe("setInterestDetails() tests", () => {
+describe("setInterestDetails() tests", () => {
   const dummyDetailedInterests = [
     {
       age: 47,

@@ -205,5 +205,23 @@ export const setDescriptions = (url) => {
  * }[]}
  */
 export const setInterestDetails = (peopleUrl, interestsUrl) => {
-  // Your code here
+  return fetch(peopleUrl)
+    .then((res) => res.json())
+    .then((people) => {
+      return fetch(interestsUrl)
+        .then((res) => res.json())
+        .then((detailedInterests) => {
+          const peopleDetailedInterestsArr = people.map((person) => {
+            const newPerson = { ...person };
+            const newInterests = newPerson.interests.map((personInterest) => {
+              return detailedInterests.find(
+                (interest) => interest.interest === personInterest
+              );
+            });
+            newPerson.interests = newInterests;
+            return newPerson;
+          });
+          return peopleDetailedInterestsArr;
+        });
+    });
 };
