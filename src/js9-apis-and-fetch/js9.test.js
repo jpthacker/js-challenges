@@ -212,7 +212,7 @@ describe("getPeopleWithMatchingInterests() tests", () => {
   });
 });
 
-xdescribe("setDescription() tests", () => {
+describe("setDescription() tests", () => {
   const dummyDescriptions = [
     {
       age: 47,

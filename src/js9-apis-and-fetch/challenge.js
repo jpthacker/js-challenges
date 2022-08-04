@@ -132,7 +132,30 @@ export const getPeopleWithMatchingInterests = (url, interest) => {
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean, decscription: string}[]} A group of person objects with added description key
  */
 export const setDescriptions = (url) => {
-  // Your code here
+  return fetch(url)
+    .then((res) => res.json())
+    .then((json) => {
+      const peopleWithDescriptionsArr = json.map((person) => {
+        const newPerson = { ...person };
+        const interests = `${person.interests[0]}, ${person.interests[1]} and ${person.interests[2]}`;
+        const getEmploymentStatusMessage = (status) => {
+          if (status) {
+            return "I am currently employed";
+          } else {
+            return "I am not currently employed";
+          }
+        };
+        newPerson.description = `My name is ${person.name}, I am ${
+          person.age
+        } years old and ${
+          person.height
+        }cm tall. I enjoy ${interests}. ${getEmploymentStatusMessage(
+          person.isEmployed
+        )}`;
+        return newPerson;
+      });
+      return peopleWithDescriptionsArr;
+    });
 };
 
 /* Expert Challenges */
