@@ -62,7 +62,16 @@ export const getEmployedPeople = (url) => {
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean} | string} A person object OR A string saying "Person not found"
  */
 export const findPersonWithId = (url, id) => {
-  // Your code here
+  return fetch(url)
+    .then((res) => res.json())
+    .then((json) => {
+      const personWithID = json.filter((person) => person.id === id);
+      if (!personWithID[0]) {
+        return "Person not found";
+      } else {
+        return personWithID[0];
+      }
+    });
 };
 
 /**
@@ -74,7 +83,18 @@ export const findPersonWithId = (url, id) => {
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[] | string} A group of person objects OR A string saying "No people with interest found"
  */
 export const getPeopleWithMatchingInterests = (url, interest) => {
-  // Your code here
+  return fetch(url)
+    .then((res) => res.json())
+    .then((json) => {
+      const peopleWithInterestArr = json.filter((person) => {
+        return person.interests.includes(interest);
+      });
+      if (!peopleWithInterestArr[0]) {
+        return "No people with interest found";
+      } else {
+        return peopleWithInterestArr;
+      }
+    });
 };
 
 /* Advanced Challenges */

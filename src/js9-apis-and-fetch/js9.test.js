@@ -140,7 +140,7 @@ describe("findPersonWithId() tests", () => {
   });
 });
 
-xdescribe("getPeopleWithMatchingInterests() tests", () => {
+describe("getPeopleWithMatchingInterests() tests", () => {
   const dummySwimming = [
     {
       id: "001",
